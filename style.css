@@ -1,0 +1,248 @@
+/*
+Theme Name: RealNex Listings Pro
+Theme URI: https://initial3development.com
+Author: Initial3 Development
+Author URI: https://initial3development.com
+Description: Professional CRE listing theme powered by RealNex Listings Pro
+Version: 1.0.0
+License: GPL v2 or later
+Text Domain: rnlp-theme
+*/
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap');
+
+:root {
+  --navy: #1a2332;
+  --navy2: #243040;
+  --gold: #c9a84c;
+  --gold2: #e8c46a;
+  --white: #ffffff;
+  --off: #f5f5f5;
+  --text: #333333;
+  --muted: #777777;
+  --border: #e0e0e0;
+  --font: 'Montserrat', sans-serif;
+  --serif: 'Playfair Display', serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  color: var(--text);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+
+/* TOPBAR */
+.site-topbar {
+  background: var(--navy);
+  padding: 8px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  color: rgba(255,255,255,.6);
+}
+.site-topbar a { color: rgba(255,255,255,.8); }
+.topbar-social { display: flex; gap: 12px; }
+.topbar-social a {
+  width: 22px; height: 22px;
+  display: flex; align-items: center; justify-content: center;
+  opacity: .6; transition: opacity .2s;
+}
+.topbar-social a:hover { opacity: 1; }
+.topbar-social svg { width: 14px; height: 14px; fill: #fff; }
+
+/* NAV */
+.site-nav {
+  background: var(--navy);
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.site-logo {
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-mark {
+  width: 42px; height: 42px;
+  background: var(--gold);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif);
+  font-size: 22px; font-weight: 600;
+  color: var(--navy);
+}
+.logo-text { color: #fff; font-size: 15px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.logo-sub { color: rgba(255,255,255,.5); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; margin-top: 1px; }
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0; padding: 0;
+}
+.nav-menu li a {
+  display: block;
+  padding: 22px 16px;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(255,255,255,.75);
+  transition: color .2s;
+  border-bottom: 2px solid transparent;
+}
+.nav-menu li a:hover,
+.nav-menu li.current-menu-item a {
+  color: #fff;
+  border-bottom-color: var(--gold);
+}
+.nav-cta {
+  padding: 9px 20px;
+  background: var(--gold);
+  color: var(--navy) !important;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  border-radius: 2px;
+  border-bottom: none !important;
+  transition: background .2s;
+}
+.nav-cta:hover { background: var(--gold2) !important; }
+
+/* HERO (shows on front page) */
+.site-hero {
+  background: var(--navy);
+  padding: 80px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.site-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 40%;
+  background: linear-gradient(135deg, transparent, rgba(201,168,76,.06));
+  pointer-events: none;
+}
+.site-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(36px,5vw,64px);
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.site-hero p {
+  font-size: 15px;
+  color: rgba(255,255,255,.6);
+  max-width: 580px;
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  border-radius: 2px;
+  transition: background .2s;
+}
+.hero-btn:hover { background: var(--gold2); }
+
+/* MAIN CONTENT AREA */
+.site-main {
+  min-height: 60vh;
+}
+
+/* PAGE HERO (for inner pages like Listings, Property etc) */
+.page-hero {
+  background: var(--navy);
+  padding: 48px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.page-hero .page-breadcrumb {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 12px;
+}
+.page-hero .page-breadcrumb span { color: rgba(255,255,255,.7); }
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(28px,4vw,48px);
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.page-hero p {
+  font-size: 14px;
+  color: rgba(255,255,255,.6);
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+/* FOOTER */
+.site-footer {
+  background: #111820;
+  padding: 40px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.footer-brand { color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.footer-sub { font-size: 10px; color: rgba(255,255,255,.4); margin-top: 4px; }
+.footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-links a { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.45); transition: color .2s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-power { font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.2); }
+
+/* CONSULTATION BAR */
+.consult-bar {
+  background: var(--navy2);
+  padding: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.consult-bar h2 {
+  font-family: var(--serif);
+  font-size: clamp(20px,3vw,32px);
+  font-weight: 500;
+  color: #fff;
+}
+.consult-bar p { font-size: 13px; color: rgba(255,255,255,.6); margin-top: 6px; max-width: 500px; }
+.consult-btn {
+  padding: 13px 28px;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: background .2s;
+}
+.consult-btn:hover { background: var(--gold2); }
+
+@media(max-width: 768px) {
+  .site-topbar, .site-nav, .page-hero, .site-footer, .consult-bar { padding-left: 20px; padding-right: 20px; }
+  .nav-menu { display: none; }
+  .site-hero { padding: 60px 20px; }
+}
