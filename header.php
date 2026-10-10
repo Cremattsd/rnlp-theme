@@ -30,7 +30,7 @@
     <div class="logo-mark">M</div>
     <div>
       <div class="logo-text"><?php bloginfo('name'); ?></div>
-      <div class="logo-sub">Commercial Real Estate</div>
+      <div class="logo-sub"><?php echo esc_html( rnlp_tt( 'Commercial Real Estate' ) ); ?></div>
     </div>
   </a>
   <?php wp_nav_menu([
@@ -39,11 +39,11 @@
     'menu_class'     => 'nav-menu',
     'fallback_cb'    => function() {
       echo '<ul class="nav-menu">';
-      echo '<li><a href="' . home_url('/listings/') . '">Listings</a></li>';
-      echo '<li><a href="' . home_url('/featured-properties/') . '">Featured</a></li>';
-      echo '<li><a href="' . home_url('/price-reduced/') . '">Price Reduced</a></li>';
-      echo '<li><a href="' . home_url('/agent-listing/') . '">Team</a></li>';
-      echo '<li><a class="nav-cta" href="' . home_url('/contact/') . '">Contact</a></li>';
+      echo '<li><a href="' . home_url('/listings/') . '">' . esc_html( rnlp_tt( 'Listings' ) ) . '</a></li>';
+      echo '<li><a href="' . home_url('/featured-properties/') . '">' . esc_html( rnlp_tt( 'Featured' ) ) . '</a></li>';
+      echo '<li><a href="' . home_url('/price-reduced/') . '">' . esc_html( rnlp_tt( 'Price Reduced' ) ) . '</a></li>';
+      echo '<li><a href="' . home_url('/agent-listing/') . '">' . esc_html( rnlp_tt( 'Team' ) ) . '</a></li>';
+      echo '<li><a class="nav-cta" href="' . home_url('/contact/') . '">' . esc_html( rnlp_tt( 'Contact' ) ) . '</a></li>';
       echo '</ul>';
     }
   ]); ?>

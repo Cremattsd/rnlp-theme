@@ -20,38 +20,44 @@ add_action('wp_enqueue_scripts', 'rnlp_theme_scripts');
 // Make sure shortcodes work in page content
 add_filter('the_content', 'do_shortcode');
 
+// 3.10.19: theme strings use the RealNex Listings Pro text domain, so they follow the
+// visitor's language (switcher / auto-detect) together with the plugin.
+function rnlp_tt( $s ) {
+    return __( $s, 'realnex-listings-pro' ); // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
+}
+
 // Page hero data per page
 function rnlp_get_page_hero() {
     $heroes = [
         'listings' => [
-            'breadcrumb' => 'Brokerage',
-            'title'      => 'Property Listings',
-            'desc'       => 'Browse all available listings. Office, industrial, retail, land and investment opportunities.',
+            'breadcrumb' => rnlp_tt('Brokerage'),
+            'title'      => rnlp_tt('Property Listings'),
+            'desc'       => rnlp_tt('Browse all available listings. Office, industrial, retail, land and investment opportunities.'),
         ],
         'featured-properties' => [
-            'breadcrumb' => 'Listings',
-            'title'      => 'Featured Properties',
-            'desc'       => 'Hand-picked featured listings from our portfolio.',
+            'breadcrumb' => rnlp_tt('Listings'),
+            'title'      => rnlp_tt('Featured Properties'),
+            'desc'       => rnlp_tt('Hand-picked featured listings from our portfolio.'),
         ],
         'price-reduced' => [
-            'breadcrumb' => 'Listings',
-            'title'      => 'Price Reduced',
-            'desc'       => 'Recently reduced listings — motivated sellers and motivated deals.',
+            'breadcrumb' => rnlp_tt('Listings'),
+            'title'      => rnlp_tt('Price Reduced'),
+            'desc'       => rnlp_tt('Recently reduced listings — motivated sellers and motivated deals.'),
         ],
         'agent-listing' => [
-            'breadcrumb' => 'Team',
-            'title'      => 'Our Brokers',
-            'desc'       => 'Meet the team behind every deal.',
+            'breadcrumb' => rnlp_tt('Team'),
+            'title'      => rnlp_tt('Our Brokers'),
+            'desc'       => rnlp_tt('Meet the team behind every deal.'),
         ],
         'single-property' => [
-            'breadcrumb' => 'Listings',
+            'breadcrumb' => rnlp_tt('Listings'),
             'title'      => '',
             'desc'       => '',
         ],
     ];
     $slug = get_post_field('post_name', get_the_ID());
     return $heroes[$slug] ?? [
-        'breadcrumb' => 'Pages',
+        'breadcrumb' => rnlp_tt('Pages'),
         'title'      => get_the_title(),
         'desc'       => '',
     ];
