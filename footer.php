@@ -19,7 +19,7 @@
     <a href="<?php echo home_url('/price-reduced/'); ?>"><?php echo esc_html( rnlp_tt( 'Price Reduced' ) ); ?></a>
     <a href="<?php echo home_url('/agent-listing/'); ?>"><?php echo esc_html( rnlp_tt( 'Team' ) ); ?></a>
   </div>
-  <div class="footer-power">Powered by RealNex Listings Pro &middot; Initial3 Development</div>
+  <div class="footer-power"><?php echo esc_html( sprintf( rnlp_tt( 'Powered by %s' ), 'RealNex Listings Pro' ) ); ?> &middot; Initial3 Development</div>
 </footer>
 
 <?php wp_footer(); ?>
